@@ -113,6 +113,7 @@ void placeShipsManually(struct cell board[row][col], struct ship ships[5]){
             placeShips(board, ships, i, dir);
             printf("\n");
             printBoard(board);
+            printf("\n");
         }while(isValidPlacement == false);
     }
     printf("\n");
