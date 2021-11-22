@@ -1,6 +1,3 @@
-//
-// Created by Tianyue Shi on 11/16/21.
-//
 
 #ifndef BATTLESHIP_CELL_H
 #define BATTLESHIP_CELL_H
@@ -12,5 +9,6 @@ struct cell{
 };
 
 void welcome();
+void setSymbol(struct cell board, char symbol);
 
 #endif //BATTLESHIP_CELL_H

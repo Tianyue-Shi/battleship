@@ -1,6 +1,4 @@
-//
-// Created by Tianyue Shi on 11/17/21.
-//
+
 #include "player.h"
 
 /**
@@ -8,7 +6,7 @@
  * @param p
  * @return *name
  */
-char *getName(struct player p) {
+char* getPlayerName(struct player p) {
     return p.name;
 }
 
@@ -60,6 +58,6 @@ int getTotalShots(struct player p) {
  * @param p
  * @return hit percentage
  */
-double getHitPerctage(struct player p) {
+double getHitPercentage(struct player p) {
     return (p.numHits / getTotalShots(p)) * 100;
 }

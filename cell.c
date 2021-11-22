@@ -1,8 +1,15 @@
-//
-// Created by Tianyue Shi on 11/16/21.
-//
 #include <stdio.h>
 #include <stdlib.h>
+#include "cell.h"
+
+/**
+ * Set cell symbol to object's symbol.
+ * @param board
+ * @param symbol
+ */
+void setSymbol(struct cell board, char symbol){
+    board.symbol = symbol;
+}
 
 void welcome() {
     printf("Welcome to Battleship!\n\n");
