@@ -117,6 +117,7 @@ void placeShipsManually(struct cell board[row][col], struct ship ships[5]){
     }
     printf("\n");
     printBoard(board);
+    printf("");
 }
 
 void placeShipsRandomly(struct cell board[row][col], struct ship ships[5]){
