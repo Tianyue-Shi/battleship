@@ -2,15 +2,21 @@
 #include <stdlib.h>
 #include "cell.h"
 
-/**
- * Set cell symbol to object's symbol.
- * @param board
- * @param symbol
- */
-void setSymbol(struct cell board, char symbol){
-    board.symbol = symbol;
-}
+///**
+// * Set cell symbol to object's symbol.
+// * @param board
+// * @param symbol
+// */
+//void setSymbol(struct cell board, char symbol){
+//    board.symbol = symbol;
+//}
 
+
+/**
+ * Author: Sara Antonijevic
+ *
+ * Prints welcome message and rules.
+ */
 void welcome() {
     printf("Welcome to Battleship!\n\n");
     printf("Rules:\n");

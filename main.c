@@ -6,6 +6,8 @@
 #include "player.h"
 
 /**
+ * Author: Sara Antonijevic
+ *
  * Global variables
  */
 int row, col;
@@ -19,7 +21,11 @@ Boolean playerTurn; /* true: Player 1's turn  /  false: Player 2's turn */
 Boolean duplicateHit = false; /* Flag for checking duplicate user hit coordinates during match */
 
 
-
+/**
+ * Author: Sara Antonijevic
+ *
+ * Get basic info for the game such as names, row, and columns.
+ */
 void getBoardInfo() {
     printf("\nPlayer 1 name: ");
     scanf("%s", name1);
@@ -31,6 +37,12 @@ void getBoardInfo() {
     scanf("%d", &col);
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Create board for player.
+ * @param board
+ */
 void initializeBoard(struct cell board[][col]) {
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
@@ -41,6 +53,12 @@ void initializeBoard(struct cell board[][col]) {
     }
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Prints the board.
+ * @param board
+ */
 void printBoard(struct cell board[][col]) {
     printf("    ");
     for (int j = 0; j < col; j++) {
@@ -60,6 +78,15 @@ void printBoard(struct cell board[][col]) {
 
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Places a ship on the player's board with its given direction.
+ * @param board
+ * @param ships
+ * @param i
+ * @param dir
+ */
 void placeShips(struct cell board[row][col], struct ship ships[5], int i, int dir) {
     isDuplicate = false;
     isValidPlacement = false;
@@ -147,6 +174,14 @@ void placeShips(struct cell board[row][col], struct ship ships[5], int i, int di
 
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Asks for the starting point of a ship before it gets placed.
+ * @param ships
+ * @param i
+ * @return *start
+ */
 char *assignPosition(struct ship ships[5], int i) {
     char *start = malloc(5);
     printf("\nEnter starting position of length %d %s (i.e. b1, a3, etc.): ", ships[i].length, ships[i].name);
@@ -155,6 +190,14 @@ char *assignPosition(struct ship ships[5], int i) {
     return start;
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Function to run when the player chooses to place his/her ships
+ * manually onto the board.
+ * @param board
+ * @param ships
+ */
 void placeShipsManually(struct cell board[row][col], struct ship ships[5]) {
     for (int i = 0; i < 5; i++) {
         do {
@@ -182,10 +225,25 @@ void placeShipsManually(struct cell board[row][col], struct ship ships[5]) {
     printf("");
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Function to run when the player chooses to place his/her ships
+ * randomly onto the board.
+ * @param board
+ * @param ships
+ */
 void placeShipsRandomly(struct cell board[row][col], struct ship ships[5]) {
 
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Prompts the player for manual or random ship placements.
+ * @param board
+ * @param ships
+ */
 void gameSetting(struct cell board[row][col], struct ship ships[5]) {
     printf("\nChoose your settings for this Battleship game.\n");
     printf("1. Manually\n");
@@ -200,6 +258,13 @@ void gameSetting(struct cell board[row][col], struct ship ships[5]) {
     }
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Check for a winner and declares game over if there is one.
+ * @param player1Ships
+ * @param player2Ships
+ */
 void checkWinner(struct ship player1Ships[5], struct ship player2Ships[5]) {
     if (player1Ships[0].life == 0 &&
         player1Ships[1].life == 0 &&
@@ -218,6 +283,14 @@ void checkWinner(struct ship player1Ships[5], struct ship player2Ships[5]) {
     }
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Show each player's stats after the game.
+ * @param players
+ * @param player1Ships
+ * @param player2Ships
+ */
 void runStats(struct player players[2], struct ship player1Ships[5], struct ship player2Ships[5]){
     players[0].successfulHits = 17 - player2Ships[0].life
                                 - player2Ships[1].life
@@ -233,6 +306,17 @@ void runStats(struct player players[2], struct ship player1Ships[5], struct ship
     printf("%s's Stats:\nSuccessful hit rate: %.2f %%\n\n", name2, (players[1].successfulHits/players[1].totalHits) * 100);
 }
 
+/**
+ * Author: Sara Antonijevic
+ *
+ * Function for alternating sequence of the battleship game.
+ * Prompts players for hits and prints player's radars after each round.
+ * @param board1
+ * @param board2
+ * @param player1Ships
+ * @param player2Ships
+ * @param players
+ */
 void runMatch(struct cell board1[row][col], struct cell board2[row][col], struct ship player1Ships[5],
               struct ship player2Ships[5], struct player players[2]) {
     struct cell radar1[row][col];
