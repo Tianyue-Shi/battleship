@@ -9,6 +9,6 @@ struct cell{
 };
 
 void welcome();
-void setSymbol(struct cell board, char symbol);
+//void setSymbol(struct cell board, char symbol);
 
 #endif //BATTLESHIP_CELL_H

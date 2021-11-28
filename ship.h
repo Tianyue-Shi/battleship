@@ -15,14 +15,15 @@ struct ship {
 /*
  * Struct functions
  */
-char getSymbol(struct ship ships);
-char* getShipName(struct ship ships);
-int getLength(struct ship ships);
-int getLife(struct ship ships);
-int getDirection(struct ship ships);
-char getRow(struct ship ships);
-int getCol(struct ship ships);
-void setRow(struct ship ships, char c);
-void setCol(struct ship ships, int col);
+//char getSymbol(struct ship ships);
+//char* getShipName(struct ship ships);
+//int getLength(struct ship ships);
+//int getLife(struct ship ships);
+//int getDirection(struct ship ships);
+//char getRow(struct ship ships);
+//int getCol(struct ship ships);
+//void setRow(struct ship ships, char c);
+//void setCol(struct ship ships, int c);
+//void setShipCol(struct ship ships, int i);
 
 #endif //BATTLESHIP_SHIP_H
